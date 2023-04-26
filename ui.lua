@@ -388,9 +388,11 @@ function visuals.round_info()
 
     local r, g, b, a = ui.get(menu.color)
 
+    local test = visuals.clamp(renderer.measure_text("", entity.get_player_name(client.current_threat())) - 40, 0, renderer.measure_text("", entity.get_player_name(client.current_threat())))
+
     local info = { }
     local j = 0
-    local l = (client.current_threat() == nil or not entity.is_alive(entity.get_local_player())) and 0 or renderer.measure_text("", entity.get_player_name(client.current_threat()))
+    local l = (client.current_threat() == nil or not entity.is_alive(entity.get_local_player())) and 0 or test
 
     local bomb = entity.get_all("CPlantedC4")[1]
     
